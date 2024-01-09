@@ -1,54 +1,81 @@
-v8.0  Premium Features
-HARPA AI v8 introduces first PRO features:
-⚙️ Customize preconfigured commands.
-📚 Reuse chats across browser tabs, access and manage AI chat history.
-🌤️ Access your commands anywhere with cloud storage linked to your HARPA AI profile.
-⚡️ Experience HARPA's full capabilities without any limits: get lifetime access with the HARPA X plan or choose the flexible monthly S plan.
+ Leaders in array
+Moderate
+Score
+39.6/160
+Average time to solve is 40m
+Problem statement
+Send feedback
+
+Given an integer array A of size n. Find and print all the leaders present in the input array. An array element A[i] is called Leader, if all the elements following it (i.e. present at its right) are less than or equal to A[i].
+
+Print all the leader elements separated by space and in the same order they are present in the input array.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints :
+
+1 <= n <= 10^6
+
+Sample Input 1 :
+6
+3 12 34 2 0 -1
+
+Sample Output 1 :
+34 2 0 -1
+
+Sample Input 2 :
+5
+13 17 5 4 6
+
+Sample Output 2 :
+17 6
+
+#include<bits/stdc++.h>
+#include<climits>
+using namespace std;
+
+void Leaders(int arr[],int len)
+{
+      
+    int i,j;
+    int ans[len],count=0;
+    bool flag = true;
+    for(int i=0;i<len-1;i++){
+        for(int j=i+1;j<len;j++){
+            if(arr[i]>=arr[j]){
+                flag = true;
+            }
+            else{
+                flag = false;
+                break;
+            }
+        }
+        if(flag == true){
+            ans[count] = arr[i];
+            count++;
+        }
+        // if(len%2==0){
+        //     if (i == len - 1) {
+        //         ans[count] = arr[len - 1];
+        //         count++;
+        //     }
+        // }
+    }
+    ans[count++]=arr[len-1];
+       for (int i = 0; i < count; i++) {
+        cout << ans[i] << " ";
+        }
+}
 
 
-
-
-
-RESEARCH
-/search-agent
-
-EXPLAIN
-/explain
-
-CHAT WITH PAGE
-/ask
-
-SHORT SUMMARY
-/summary
-
-LONG SUMMARY
-/summary
-
-EXTRACT DATA
-/extract-data
-
-REPURPOSE PAGE
-/repurpose-text
-
-MONITOR PAGE
-
-REPLY TO TEXT
-/reply
-
-ALL COMMANDS
-
-
-CONNECT TO GPT
-To use AI features, please login to chat.openai.com
-
-LOGIN
-
-Not connecting?
-Try to switch to Tab Mode, clear openai.com cookies, turn off VPN, or enter your OpenAI API Key
-
-
-Use Tab Mode
-
-
-
+int main()
+{
+    int len;
+    cin>>len;
+    int arr[len];
+    for(int i=0;i<len;i++)
+    {
+        cin>>arr[i];
+    }
+    Leaders(arr,len);
+}
 
